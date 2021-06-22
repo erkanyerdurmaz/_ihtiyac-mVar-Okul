@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title color="primary"  shape="round">
+      Ürün Takibi
+      <ion-back-button text="Geri"></ion-back-button>
+    </ion-title >
+    
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+
+<ion-list>
+  
+
+  <ion-item>
+    <ion-label>Ürünler</ion-label>
+    <ion-select [compareWith]="compareWith">
+      <ion-select-option *ngFor="let deger of kayitlar" [value]="deger.payload.doc.id">{{deger.payload.doc.data().urun}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+
+
+<ion-card *ngFor="let kayit of kayitlar">
+  
+
+  <ion-card-content>
+    <ion-label>Ürün Adı: {{kayit.payload.doc.data().urun}}</ion-label>
+  </ion-card-content>
+  <ion-card-content>
+    <ion-label>İhtiyaç Adedi: {{kayit.payload.doc.data().adet}}</ion-label>
+  </ion-card-content>
+  <ion-card-content>
+    <ion-label>Okul Adı: {{kayit.payload.doc.data().okulad}}</ion-label>
+  </ion-card-content>
+  <ion-card-content>
+    <ion-label>Telefon Numarası: {{kayit.payload.doc.data().telno}}</ion-label>
+  </ion-card-content>
+  <ion-card-content>
+    <ion-label>Okul Adresi: {{kayit.payload.doc.data().adres}}</ion-label>
+  </ion-card-content>
+  <ion-card-content>
+    <ion-label>Eklenme Tarihi: {{kayit.payload.doc.data().tarih * 1000 | date:'dd:MM:yyyy HH:mm:ss'}}</ion-label>
+  </ion-card-content>
+  <ion-card-content>
+  
+</ion-card-content>
+</ion-card>
+</ion-content>
